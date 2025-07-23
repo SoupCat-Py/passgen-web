@@ -1,0 +1,96 @@
+/* FONT SIZES: */
+/* - title:    30 */
+/* - password: 36 */
+/* - subtitle: 20 */
+/* - normal:   12 */
+
+
+
+/* entire document */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+@font-face {
+    font-family: departure;
+    src: url(fonts/DepartureMonoNerdFontMono-Regular.otf);
+}
+* {
+    font-family: departure;
+    background-color: black;
+    color: turquoise;
+}
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+}
+i {
+    background: none;
+}
+
+.title {
+    font-size: 30px;
+}
+.version {
+    font-size: 20px;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+
+    border: solid;
+    border-color: turquoise;
+    border-radius: 5px;
+}
+
+/* GENERATION */
+.gen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    border: none;
+    border-bottom: dashed;
+    border-color: turquoise;
+}
+.gen-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 36px;
+}
+#gen-button {
+    height: 36px;
+    width: 60px;
+    border: solid;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#gen-button::before {
+    content: "\f074";
+    font-size: 30px;
+}
+
+/* SETTINGS */
+.settings {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    padding: 20px;
+    gap: 16px;
+}
+.settings-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
