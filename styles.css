@@ -125,7 +125,6 @@ input[type="range"] {
     /* adding my own stuff */
     width: 250px;
     height: 16px;
-    cursor: pointer;
     background: none;
     border: solid lime;
     

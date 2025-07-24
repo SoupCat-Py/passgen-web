@@ -34,6 +34,7 @@ gen_button.addEventListener('click', generate_password);
 slider_in.addEventListener('input', update_length);
 pass_out.addEventListener('click', copy_password);
 window.onload = () => { passwordLength = Number(slider_in.value); slider_out.textContent = String(slider_in.value).padStart(3,0); } // update length on load
+checkboxes.forEach((checkbox) => {checkbox.addEventListener('click', generate_password)})
 
 function update_length() {
     passwordLength = Number(slider_in.value);
