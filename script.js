@@ -54,7 +54,8 @@ function generate_password() {
         if (checkbox.checked) { masterArray.push(...checksMap[checkbox.id]); }
     })
     
-    console.log(masterArray.length);
+    // only generate if there's stuff in masterArray
+    // if not, do the nuh-uh animation
     if (masterArray.length > 0) {
         // grab items from masterArray and add them to passwordArray
         for (let i = 0; i < passwordLength; i++) {
@@ -79,9 +80,12 @@ function generate_password() {
 function copy_password() {
     if (pass_out.textContent !== 'CLICK TO COPY') {
         navigator.clipboard.writeText(finalPasswordGlobal);
-        pass_out.textContent = 'COPIED';
-        setTimeout(() => {
-            pass_out.textContent = finalPasswordGlobal;
-        }, 750);
+        // pass_out.textContent = 'COPIED';
+        // setTimeout(() => {
+        //     pass_out.textContent = finalPasswordGlobal;
+        // }, 750);
+        pass_out.style.animation = 'none';
+        void pass_out.offsetWidth;
+        pass_out.style.animation = 'pop 0.2s ease';
     }
 }
