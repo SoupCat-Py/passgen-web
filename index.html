@@ -15,53 +15,62 @@
 <body>
     
     <h1>
-        <span class="title">Soup's PassGen </span>
+        <span class="title">Soup<span class="thin">'</span>s PassGen </span>
         <span class="version">ver 3.0</span>
     </h1>
     <section class="main">
 
         <section class="gen">
-            <div class="gen-div">
-                <p id="password">CLICK TO COPY</p>
+            <!-- displayed password -->
+            <p id="password">CLICK<span class="thin"> </span>TO<span class="thin"> </span>COPY</p>
+
+            <!-- user inputs (slider and button) -->
+            <div class="row-div input-div">
+                LENGTH:
+                <span id="length">000</span>
+                <input
+                type="range" min="1" max="100" value="16"
+                class="slider" id="len-slider">
                 <button id="gen-button"></button>
             </div>
-            <!-- slider goes here -->
-             slider goes here
         </section>
 
         <section class="settings">
 
             <div class="settings-column">
-                <label class="check-cont">UPPERCASE
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
+                <label class="check-cont">
+                    <input type="checkbox" id="ch-upper" checked>
+                    UPPERCASE
                 </label>
-                <label class="check-cont">LOWERCASE
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
+                <label class="check-cont">
+                    <input type="checkbox" id="ch-lower" checked>
+                    LOWERCASE
                 </label>
-                <label class="check-cont">NUMBERS
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
+                <label class="check-cont">
+                    <input type="checkbox" id="ch-numbers" checked>
+                    NUMBERS
                 </label>
             </div>
             <div class="settings-column">
-                <label class="check-cont">SYMBOLS
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
+                <label class="check-cont">
+                    <input type="checkbox" id="ch-symbols" checked>
+                    SYMBOLS
                 </label>
-                <label class="check-cont">PUNCTUATION
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
+                <label class="check-cont">
+                    <input type="checkbox" id="ch-brackets" checked>
+                    BRACKETS
                 </label>
-                <label class="check-cont">BRACKETS
-                                    <input type="checkbox">
-                    <span class="checkmark"></span>
+                <label class="check-cont">
+                    <input type="checkbox" id="ch-punc" checked>
+                    PUNCTUATION
                 </label>
             </div>
 
         </section>
     </section>
+
+    <!-- link up JS -->
+     <script src="script.js"></script>
 
 </body>
 </html>

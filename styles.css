@@ -1,8 +1,7 @@
 /* FONT SIZES: */
-/* - title:    30 */
+/* - title:    24 */
 /* - password: 36 */
-/* - subtitle: 20 */
-/* - normal:   12 */
+/* - normal:   16 */
 
 
 
@@ -14,26 +13,31 @@
 }
 * {
     font-family: departure;
-    background-color: black;
     color: turquoise;
+    user-select: none;
+    -moz-user-select: none;
 }
 body {
+    background-color: black;
+    /* center stuff */
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-
 }
 i {
     background: none;
 }
+.thin {
+    font-family: sans-serif;
+}
 
 .title {
-    font-size: 30px;
+    font-size: 24px;
 }
 .version {
-    font-size: 20px;
+    font-size: 16px;
 }
 .main {
     display: flex;
@@ -57,20 +61,87 @@ i {
     border-bottom: dashed;
     border-color: turquoise;
 }
-.gen-div {
+#password {
+    cursor: copy;
+    font-size: 36px;
+    gap: 24px;
+
+    /* wrap if too long*/
+    max-width: 80vw;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+#password:hover {
+    background-color: turquoise;
+    color: black;
+}
+#password,
+#password:active {
+    background-color: black;
+    color: turquoise;
+}
+
+.input-div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 12px;
-
-    font-size: 36px;
+    justify-content: center;
+    gap: 8px;
+}
+/* track - webkit & firefox*/
+input[type="range"] {
+    /* remove native styles */
+    appearance: none;
+    
+    /* adding my own stuff */
+    width: 250px;
+    height: 16px;
+    cursor: pointer;
+    background: none;
+    border: solid turquoise;
+    
+    /* hide the HUGE shadow that isn't IN the slider */
+    overflow: hidden;
+}
+/* thumb - webkit*/
+input[type="range"]::-webkit-slider-thumb {
+    /* remove native style */
+    appearance: none;
+    
+    /* custom thumb */
+    height: 16px;
+    width: 16px;
+    background-color: turquoise;
+    border: none;
+    
+    /* custom progress */
+    box-shadow: -250px 0 0 250px turquoise
+}
+/* thumb - firefox */
+input[type="range"]::-moz-range-thumb {
+    /* cant remove the thumb */
+    /* custom thumb */
+    height: 16px;
+    width: 16px;
+    background-color: turquoise;
+    border-radius: 0;
+    border: none;
+    
+    /* custom progress */
+    box-shadow: -250px 0 0 250px turquoise;
 }
 #gen-button {
     height: 36px;
     width: 60px;
     border: solid;
     border-radius: 5px;
-
+    border-color: turquoise;
+    background-color: black;
+    margin-left: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+    
+    /* align icon */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,7 +149,22 @@ i {
 #gen-button::before {
     content: "\f074";
     font-size: 30px;
+    color: turquoise;
 }
+#gen-button:active {
+    background-color: turquoise;
+}
+#gen-button:active::before {
+    color: black;
+}
+@keyframes nuh-uh {
+    0% {transform: translatex(-2px);}
+    50% {transform: translateX(4px);}
+    100% {transform: translateX(-2px);}
+}
+
+
+
 
 /* SETTINGS */
 .settings {
@@ -87,10 +173,55 @@ i {
     align-items: top;
     justify-content: center;
     padding: 20px;
-    gap: 16px;
+    gap: 36px;
 }
 .settings-column {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+.check-cont {
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 12px;
+  cursor: pointer; /* pointer for hovering text */
+}
+input[type="checkbox"] {
+    cursor: pointer; /* pointer for hovering box */
+    /* hide the native checkbox */
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    margin: 0;
+
+    /* styling for unchecked box */
+    color: inherit;
+    width: 20px;
+    height: 20px;
+    border: 2px solid turquoise;
+
+    /* align ::before to horiz and vert center of custom control */
+    display: grid;
+    place-content: center;
+}
+/* define pseudo-element for checked state */
+input[type="checkbox"]::before {
+    content: "\f0e1e";
+    color: black;
+    font-size: 20px;
+    display: grid;
+    place-content: center;
+
+    width: 20px;
+    height: 20px;
+    transform: scale(0);
+    transition: 0.2s transform ease-in-out;
+
+    /* for windows high-contrast mode */
+    background-color: turquoise;
+}
+/* show pseudo-element for checked state */
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
 }
