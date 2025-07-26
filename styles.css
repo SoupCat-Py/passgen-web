@@ -83,36 +83,20 @@ h1 {
     /* stuff for animation */
     position: relative;
     z-index: 1;
+    /* MOBILE ANIMATION */
+    transform: scale(1);
+    transition: transform 0.2s ease;
 }
-#password::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
-    width: 0;
-
-    background-color: lime;
-    transition: all 0.2s ease;
-    z-index: -1;
-}
-#password:hover::after {
-    left: 0;
-    width: 100%;
-}
-#password:hover {
+/* MOBILE MODE */
+#password:active {
     color: black;
-    z-index: 1;
-}
-@keyframes pop {
-    0% {transform: scale(1);}
-    50% {transform: scale(0.98);}
-    100% {transform: scale(1);}
+    background-color: lime;
+    transform: scale(0.98);
 }
 
 .input-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -124,7 +108,7 @@ input[type="range"] {
     
     /* adding my own stuff */
     width: 250px;
-    height: 16px;
+    height: 20px;
     background: none;
     border: solid lime;
     
@@ -137,7 +121,7 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     
     /* custom thumb */
-    height: 16px;
+    height: inherit;
     width: 16px;
     background-color: lime;
     border: none;
@@ -149,7 +133,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
     /* cant remove the thumb */
     /* custom thumb */
-    height: 16px;
+    height: inherit;
     width: 16px;
     background-color: lime;
     border-radius: 0;
@@ -161,7 +145,7 @@ input[type="range"]::-moz-range-thumb {
 input[type="range"]:hover { cursor: ew-resize; }
 #gen-button {
     height: 36px;
-    width: 60px;
+    width: 250px;
     border: solid;
     border-radius: 5px;
     border-color: lime;
@@ -254,4 +238,45 @@ input[type="checkbox"]::before {
 /* show pseudo-element for checked state */
 input[type="checkbox"]:checked::before {
     transform: scale(1);
+}
+
+
+
+
+
+/* DESKTOP MODE */
+@media (min-width: 580px) {
+    .input-div {
+        flex-direction: row;
+    }
+    #gen-button {
+        width: 72px;
+    }
+
+    /* password animation */
+    #password::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: 0;
+
+        background-color: lime;
+        transition: all 0.2s ease;
+        z-index: -1;
+    }
+    #password:hover::after {
+        left: 0;
+        width: 100%;
+    }
+    #password:hover {
+        color: black;
+        z-index: 1;
+    }
+    @keyframes pop {
+        0% {transform: scale(1);}
+        50% {transform: scale(0.98);}
+        100% {transform: scale(1);}
+    }
 }
